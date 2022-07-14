@@ -7,10 +7,13 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
+gem "delayed_job_active_record"
 gem "puma"
 gem "uglifier", ">= 1.3.0"
 gem "webpacker"
+gem "whenever"
 
+gem "daemons"
 gem "figaro", ">= 1.1.1"
 gem "openssl"
 
