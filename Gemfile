@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-digra_census_authorization", path: "decidim-digra_census_authorization"
+gem "decidim-dipgra_census_authorization", path: "decidim-dipgra_census_authorization"
 
 gem "puma"
 gem "uglifier", ">= 1.3.0"

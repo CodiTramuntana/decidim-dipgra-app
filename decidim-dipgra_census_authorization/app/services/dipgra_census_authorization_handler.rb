@@ -2,8 +2,8 @@
 
 require "virtus/multiparams"
 
-# An AuthorizationHandler that uses the DigraCensusAuthorizationService to create authorizations
-class DigraCensusAuthorizationHandler < Decidim::AuthorizationHandler
+# An AuthorizationHandler that uses the DipgraCensusAuthorizationService to create authorizations
+class DipgraCensusAuthorizationHandler < Decidim::AuthorizationHandler
   include Virtus::Multiparams
 
   DOCUMENT_TYPE = {
@@ -33,7 +33,7 @@ class DigraCensusAuthorizationHandler < Decidim::AuthorizationHandler
     [:nif, :passport, :residence_card, :dni].map do |type|
       [
         I18n.t(type, scope: %w(decidim authorization_handlers
-                               digra_census_authorization_handler
+                               dipgra_census_authorization_handler
                                document_types)),
         type
       ]
@@ -61,7 +61,7 @@ class DigraCensusAuthorizationHandler < Decidim::AuthorizationHandler
     return @census_for_user if defined? @census_for_user
     return unless organization
 
-    @service = DigraCensusAuthorization.new(api_config[:username], api_config[:password], organization)
+    @service = DipgraCensusAuthorization.new(api_config[:username], api_config[:password], organization)
     @census_for_user = @service.call(
       birthdate: birthdate,
       document_type: DOCUMENT_TYPE[document_type],
@@ -73,8 +73,8 @@ class DigraCensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   def api_config
     {
-      username: "#{organization.ine_code}#{DigraCensusAuthorizationConfig.username}",
-      password: DigraCensusAuthorizationConfig.password
+      username: "#{organization.ine_code}#{DipgraCensusAuthorizationConfig.username}",
+      password: DipgraCensusAuthorizationConfig.password
     }
   end
 

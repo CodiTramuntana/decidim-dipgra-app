@@ -10,7 +10,7 @@ DOCUMENT_TYPE = {
   "dni" => "6"
 }.freeze
 
-namespace :census_api do
+namespace :dipgra_census do
   desc "Checks the given credentials against the census_api (document_type dni/nie/passport, birthdate yyyy/mm/dd)"
   task :check, [:org_id, :document_type, :id_document, :birthdate] => :environment do |_task, args|
     organization = Decidim::Organization.find(args.org_id)
@@ -26,7 +26,7 @@ namespace :census_api do
     EOMSG
 
     puts "\nRESPONSE:"
-    service = DigraCensusAuthorizationRq.new(api_config(organization)[:username], api_config(organization)[:password], api_config(organization)[:organization])
+    service = DipgraCensusAuthorizationRq.new(api_config(organization)[:username], api_config(organization)[:password], api_config(organization)[:organization])
     rs = service.send_rq(
       birthdate: birthdate,
       document_type: DOCUMENT_TYPE[document_type],
@@ -38,8 +38,8 @@ namespace :census_api do
 
   def api_config(organization)
     {
-      username: "#{organization.ine_code}#{Rails.application.secrets.digra_census[:username]}",
-      password: Rails.application.secrets.digra_census[:password],
+      username: "#{organization.ine_code}#{Rails.application.secrets.dipgra_census[:username]}",
+      password: Rails.application.secrets.dipgra_census[:password],
       organization: organization
     }
   end
@@ -50,7 +50,7 @@ namespace :census_api do
     Nokogiri::XML(parsed.xpath("//servicioResponse")[0])
   end
 
-  desc "Returns the DigraCensusAuthorizationHandler encoded version of the document argument"
+  desc "Returns the DipgraCensusAuthorizationHandler encoded version of the document argument"
   task :to_unique_id, [:document] => :environment do |_task, args|
     puts to_unique_id(args.document)
   end

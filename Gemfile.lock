@@ -173,9 +173,9 @@ GIT
       decidim-core (= 0.26.2)
 
 PATH
-  remote: decidim-digra_census_authorization
+  remote: decidim-dipgra_census_authorization
   specs:
-    decidim-digra_census_authorization (0.26.2)
+    decidim-dipgra_census_authorization (0.26.2)
       decidim (~> 0.26.2)
       savon (~> 2.11.2)
       virtus-multiparams (~> 0.1.1)
@@ -831,8 +831,8 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-dev!
+  decidim-dipgra_census_authorization!
   delayed_job_active_record
-  decidim-digra_census_authorization!
   faker
   figaro (>= 1.1.1)
   fog-aws

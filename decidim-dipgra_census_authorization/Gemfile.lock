@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-digra_census_authorization (0.26.2)
+    decidim-dipgra_census_authorization (0.26.2)
       decidim (~> 0.26.2)
       savon (~> 2.11.2)
       virtus-multiparams (~> 0.1.1)
@@ -768,7 +768,7 @@ DEPENDENCIES
   bootsnap
   decidim
   decidim-dev (~> 0.26.2)
-  decidim-digra_census_authorization!
+  decidim-dipgra_census_authorization!
   faker
   letter_opener_web
   listen

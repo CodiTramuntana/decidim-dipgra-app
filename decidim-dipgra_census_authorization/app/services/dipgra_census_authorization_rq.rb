@@ -12,18 +12,18 @@ require "base64"
 # - id_document: A String with the identify document
 # - birthdate: a Date object with the date of birth
 #
-class DigraCensusAuthorizationRq
-  URL = DigraCensusAuthorizationConfig.url
+class DipgraCensusAuthorizationRq
+  URL = DipgraCensusAuthorizationConfig.url
 
   def initialize(username, password, organization)
     @username = username
     @encoded_password = Digest::SHA1.base64digest(password)
     @organization = organization
-    @public_key = DigraCensusAuthorizationConfig.public_key
+    @public_key = DipgraCensusAuthorizationConfig.public_key
   end
 
   def send_rq(document_type:, id_document:, birthdate:)
-    request = ::DigraCensusAuthorization::DigraCensusData.new(document_type, id_document, birthdate)
+    request = ::DipgraCensusAuthorization::DipgraCensusData.new(document_type, id_document, birthdate)
     send_soap_request(request)
   end
 

@@ -5,7 +5,7 @@ require "base64"
 #
 # Parses a response from the Diputaciom of Granada census WS.
 #
-class DigraCensusAuthorizationRs
+class DipgraCensusAuthorizationRs
   # raw_response: The response as a String
   def initialize(raw_response)
     @raw = raw_response

@@ -1,11 +1,11 @@
 es:
   activemodel:
     attributes:
-      digra_census_authorization_handler:
+      dipgra_census_authorization_handler:
         birthdate: Fecha de nacimiento
         document_type: Tipo de documento
         id_document: Número de documento
-  digra_census_authorization:
+  dipgra_census_authorization:
     form:
       date_select:
         day: Dia
@@ -13,7 +13,7 @@ es:
         year: Año
   decidim:
     authorization_handlers:
-      digra_census_authorization_handler:
+      dipgra_census_authorization_handler:
         document_types:
           dni: DNI
           nif: NIF

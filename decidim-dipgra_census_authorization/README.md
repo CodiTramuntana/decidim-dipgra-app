@@ -1,4 +1,4 @@
-# Decidim::DigraCensusAuthorization
+# Decidim::DipgraCensusAuthorization
 
 A decidim package to provice user authorizations agains the Diputación of Granada census API
 
@@ -8,7 +8,7 @@ A decidim package to provice user authorizations agains the Diputación of Grana
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-digra_census_authorization'
+gem 'decidim-dipgra_census_authorization'
 ```
 
 And then execute:
@@ -21,10 +21,10 @@ bundle install
 
 Once installed, the following env variables can be configured:
 
-- **DIGRA_CENSUS_URL**: URL to the DIGRA census web service
-- **DIGRA_CENSUS_PUBLIC_KEY**: Public Key used in the DIGRA web service authentication
-- **DIGRA_CENSUS_USERNAME**: Username for DIGRA web service authentication
-- **DIGRA_CENSUS_PASSWORD**: Password for DIGRA web service authentication
+- **DIPGRA_CENSUS_URL**: URL to the DIPGRA census web service
+- **DIPGRA_CENSUS_PUBLIC_KEY**: Public Key used in the DIPGRA web service authentication
+- **DIPGRA_CENSUS_USERNAME**: Username for DIPGRA web service authentication
+- **DIPGRA_CENSUS_PASSWORD**: Password for DIPGRA web service authentication
 
 ### Run tests
 
