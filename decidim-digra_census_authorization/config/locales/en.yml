@@ -1,0 +1,31 @@
+en:
+  activemodel:
+    attributes:
+      digra_census_authorization_handler:
+        birthdate: Date of birth
+        document_type: Document type
+        id_document: Identification document
+  digra_census_authorization:
+    form:
+      date_select:
+        day: Day
+        month: Month
+        year: Year
+  decidim:
+    authorization_handlers:
+      digra_census_authorization_handler:
+        document_types:
+          dni: DNI
+          nif: NIF
+          passport: Passport
+          residence_card: Residence card
+        explanation: Authorize your user account against the Municipality Census
+        fields:
+          birthdate: Birthdate
+        name: Municipality Census
+        type: API
+    census:
+      errors:
+        messages:
+          invalid_credentials: Invalid credentials
+          not_censed: We could not find your document ID matching with this birthdate in our Census. If the data entered is correct and the problem persists, please, contact an administrator.
