@@ -1,6 +1,6 @@
 # Decidim::DipgraCensusAuthorization
 
-A decidim package to provice user authorizations agains the Diputación of Granada census API
+A decidim package to provide user authorizations against the Diputación of Granada census API
 
 
 ## Installation

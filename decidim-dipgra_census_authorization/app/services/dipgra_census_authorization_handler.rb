@@ -6,13 +6,6 @@ require "virtus/multiparams"
 class DipgraCensusAuthorizationHandler < Decidim::AuthorizationHandler
   include Virtus::Multiparams
 
-  DOCUMENT_TYPE = {
-    "nif" => "1",
-    "passport" => "2",
-    "residence_card" => "3",
-    "dni" => "6"
-  }.freeze
-
   # This is the input (from the user) to validate against
   attribute :document_type, Symbol
   attribute :id_document, String
@@ -61,22 +54,15 @@ class DipgraCensusAuthorizationHandler < Decidim::AuthorizationHandler
     return @census_for_user if defined? @census_for_user
     return unless organization
 
-    @service = DipgraCensusAuthorization.new(api_config[:username], api_config[:password], organization)
+    @service = DipgraCensusAuthorization.new(DipgraCensusAuthorizationConfig.api_config(organization))
     @census_for_user = @service.call(
       birthdate: birthdate,
-      document_type: DOCUMENT_TYPE[document_type],
+      document_type: DipgraCensusAuthorizationConfig::DOCUMENT_TYPE[document_type],
       id_document: id_document
     )
   end
 
   private
-
-  def api_config
-    {
-      username: "#{organization.ine_code}#{DipgraCensusAuthorizationConfig.username}",
-      password: DipgraCensusAuthorizationConfig.password
-    }
-  end
 
   def organization
     current_organization || user.try(:organization)

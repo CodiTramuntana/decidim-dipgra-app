@@ -3,7 +3,7 @@
 class DipgraCensusAuthorization
   DipgraCensusData = Struct.new(:document_type, :id_document, :birthdate)
 
-  def initialize(username, password, organization)
+  def initialize(username:, password:, organization:)
     @username = username
     @password = password
     @organization = organization
@@ -21,6 +21,6 @@ class DipgraCensusAuthorization
   private
 
   def build_request
-    DipgraCensusAuthorizationRq.new(@username, @password, @organization)
+    DipgraCensusAuthorizationRq.new(username: @username, password: @password, organization: @organization)
   end
 end

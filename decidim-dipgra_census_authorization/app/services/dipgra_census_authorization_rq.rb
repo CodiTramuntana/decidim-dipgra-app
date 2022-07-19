@@ -15,7 +15,7 @@ require "base64"
 class DipgraCensusAuthorizationRq
   URL = DipgraCensusAuthorizationConfig.url
 
-  def initialize(username, password, organization)
+  def initialize(username:, password:, organization:)
     @username = username
     @encoded_password = Digest::SHA1.base64digest(password)
     @organization = organization
