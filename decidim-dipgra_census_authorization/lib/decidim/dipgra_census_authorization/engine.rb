@@ -17,6 +17,13 @@ module Decidim
           auth.form = "DipgraCensusAuthorizationHandler"
         end
       end
+
+      config.to_prepare do
+        decorators = "#{Decidim::DipgraCensusAuthorization::Engine.root}/app/decorators"
+        Dir.glob("#{decorators}/**/*_decorator.rb").each do |decorator|
+          require_dependency(decorator)
+        end
+      end
     end
   end
 end

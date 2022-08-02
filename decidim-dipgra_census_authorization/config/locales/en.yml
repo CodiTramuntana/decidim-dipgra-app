@@ -5,12 +5,9 @@ en:
         birthdate: Date of birth
         document_type: Document type
         id_document: Identification document
-  dipgra_census_authorization:
-    form:
-      date_select:
-        day: Day
-        month: Month
-        year: Year
+      organization:
+        ine_code: INE code
+        municipality_code: Municipality code
   decidim:
     authorization_handlers:
       dipgra_census_authorization_handler:
@@ -24,8 +21,19 @@ en:
           birthdate: Birthdate
         name: Municipality Census
         type: API
+    system:
+      models:
+        organization:
+          fields:
+            dipgra_census_settings: Padrón configurations
+  dipgra_census_authorization:
     census:
       errors:
         messages:
           invalid_credentials: Invalid credentials
           not_censed: We could not find your document ID matching with this birthdate in our Census. If the data entered is correct and the problem persists, please, contact an administrator.
+    form:
+      date_select:
+        day: Day
+        month: Month
+        year: Year

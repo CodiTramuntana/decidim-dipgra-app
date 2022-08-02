@@ -5,12 +5,9 @@ es:
         birthdate: Fecha de nacimiento
         document_type: Tipo de documento
         id_document: Número de documento
-  dipgra_census_authorization:
-    form:
-      date_select:
-        day: Dia
-        month: Mes
-        year: Año
+      organization:
+        ine_code: Código INE
+        municipality_code: Código de municipio
   decidim:
     authorization_handlers:
       dipgra_census_authorization_handler:
@@ -24,8 +21,19 @@ es:
           birthdate: Fecha de nacimiento
         name: Padrón Municipal
         type: API
+    system:
+      models:
+        organization:
+          fields:
+            dipgra_census_settings: Configuración del Padrón
+  dipgra_census_authorization:
     census:
       errors:
         messages:
           invalid_credentials: Las credenciales no coinciden.
           not_censed: No hemos podido encontrar tu documento de identidad con esta fecha de nacimiento en el padrón municipal. Si tus datos son correctos y el problema persiste, por favor, ponte en contacto con un administrador.
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Año
