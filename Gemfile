@@ -9,6 +9,8 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dipgra_census_authorization", path: "decidim-dipgra_census_authorization"
 
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
+
 gem "puma"
 gem "uglifier", ">= 1.3.0"
 gem "webpacker"
