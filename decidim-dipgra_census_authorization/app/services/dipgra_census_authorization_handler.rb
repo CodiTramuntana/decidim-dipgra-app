@@ -54,11 +54,13 @@ class DipgraCensusAuthorizationHandler < Decidim::AuthorizationHandler
     return @census_for_user if defined? @census_for_user
     return unless organization
 
-    @service = DipgraCensusAuthorization.new(DipgraCensusAuthorizationConfig.api_config(organization))
+    username = Rails.application.secrets.dipgra_census[:username]
+    password = Rails.application.secrets.dipgra_census[:password]
+    @service = DipgraCensusAuthorization.new(username: "#{organization.ine_code}#{username}", password:, organization:)
     @census_for_user = @service.call(
-      birthdate: birthdate,
+      birthdate:,
       document_type: DipgraCensusAuthorizationConfig::DOCUMENT_TYPE[document_type],
-      id_document: id_document
+      id_document:
     )
   end
 

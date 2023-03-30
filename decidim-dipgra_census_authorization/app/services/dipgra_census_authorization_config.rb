@@ -24,13 +24,5 @@ class DipgraCensusAuthorizationConfig
     def public_key
       Rails.application.secrets.dipgra_census[:public_key]
     end
-
-    def api_config(organization)
-      {
-        username: "#{organization.ine_code}#{username}",
-        password: password,
-        organization: organization
-      }
-    end
   end
 end

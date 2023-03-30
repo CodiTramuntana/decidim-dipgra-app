@@ -4,22 +4,24 @@ require "spec_helper"
 
 # rubocop:disable RSpec/MultipleMemoizedHelpers
 RSpec.describe DipgraCensusAuthorization do
-  let(:organization) { create(:organization) }
-  let(:subject) do
+  subject do
     allow(Rails.application.secrets).to receive(:dipgra_census).and_return(JSON.parse({
       username: "username",
       password: "password",
-      url: "http://dipgra.ws/services/Ci",
+      url: "http://80//dipgra.ws/services/Ci",
       public_key: "public_key"
-    }.to_json, object_class: OpenStruct))
+    }.to_json, object_class: Hash))
 
-    api = DipgraCensusAuthorization.new(DipgraCensusAuthorizationConfig.api_config(organization))
+    username = "username"
+    password = "password"
+    api = DipgraCensusAuthorization.new(username: "#{organization.ine_code}#{username}", password:, organization:)
     rs = api.call(document_type: 1,
-                  id_document: id_document,
+                  id_document:,
                   birthdate: date)
     rs
   end
 
+  let(:organization) { create(:organization) }
   let(:document_type) { 1 }
   let(:id_document) { "58958982T" }
   let(:date) { Date.parse("20000101101010") }
@@ -30,7 +32,7 @@ RSpec.describe DipgraCensusAuthorization do
     let(:rs_birthdate) { "20000101000000" }
 
     before do
-      stub_request(:post, "http://dipgra.ws/services/Ci")
+      stub_request(:post, "http://80/dipgra.ws/services/Ci")
         .with(
           headers: {
             "Accept" => "*/*",
