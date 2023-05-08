@@ -3,10 +3,10 @@
 class DipgraCensusAuthorization
   DipgraCensusData = Struct.new(:document_type, :id_document, :birthdate)
 
-  def initialize(username:, password:, organization:)
-    @username = username
-    @password = password
-    @organization = organization
+  def initialize(config)
+    @username = config[:username]
+    @password = config[:password]
+    @organization = config[:organization]
   end
 
   def call(document_type:, id_document:, birthdate:)
