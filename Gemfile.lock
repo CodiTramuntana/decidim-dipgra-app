@@ -193,8 +193,8 @@ GIT
 PATH
   remote: decidim-dipgra_census_authorization
   specs:
-    decidim-dipgra_census_authorization (0.27)
-      decidim (~> 0.27)
+    decidim-dipgra_census_authorization (0.27.0)
+      decidim (~> 0.27.0)
       savon (~> 2.11.2)
       virtus-multiparams (~> 0.1.1)
 

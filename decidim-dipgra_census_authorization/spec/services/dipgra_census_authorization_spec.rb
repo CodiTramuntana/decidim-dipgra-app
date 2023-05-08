@@ -4,7 +4,7 @@ require "spec_helper"
 
 # rubocop:disable RSpec/MultipleMemoizedHelpers
 RSpec.describe DipgraCensusAuthorization do
-  subject do
+  subject(:test_subject) do
     allow(Rails.application.secrets).to receive(:dipgra_census).and_return(JSON.parse({
       username: "username",
       password: "password",
@@ -12,9 +12,7 @@ RSpec.describe DipgraCensusAuthorization do
       public_key: "public_key"
     }.to_json, object_class: Hash))
 
-    username = "username"
-    password = "password"
-    api = DipgraCensusAuthorization.new(username: "#{organization.ine_code}#{username}", password:, organization:)
+    api = DipgraCensusAuthorization.new(DipgraCensusAuthorizationConfig.api_config(organization))
     rs = api.call(document_type: 1,
                   id_document:,
                   birthdate: date)
@@ -47,7 +45,7 @@ RSpec.describe DipgraCensusAuthorization do
 
     context "with success response" do
       it "performs request and parses response" do
-        expect(subject).to eq(DipgraCensusAuthorization::DipgraCensusData.new(document_type, id_document, date))
+        expect(test_subject).to eq(DipgraCensusAuthorization::DipgraCensusData.new(document_type, id_document, date))
       end
     end
   end
