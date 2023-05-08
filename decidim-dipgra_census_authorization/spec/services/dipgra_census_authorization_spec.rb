@@ -8,7 +8,7 @@ RSpec.describe DipgraCensusAuthorization do
     allow(Rails.application.secrets).to receive(:dipgra_census).and_return(JSON.parse({
       username: "username",
       password: "password",
-      url: "http://80//dipgra.ws/services/Ci",
+      url: "http://dipgra.ws/services/Ci",
       public_key: "public_key"
     }.to_json, object_class: Hash))
 
@@ -32,7 +32,7 @@ RSpec.describe DipgraCensusAuthorization do
     let(:rs_birthdate) { "20000101000000" }
 
     before do
-      stub_request(:post, "http://80/dipgra.ws/services/Ci")
+      stub_request(:post, "http://dipgra.ws/services/Ci")
         .with(
           headers: {
             "Accept" => "*/*",
