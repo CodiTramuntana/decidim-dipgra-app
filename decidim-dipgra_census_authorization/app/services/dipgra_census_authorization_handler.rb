@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-require "virtus/multiparams"
-
 # An AuthorizationHandler that uses the DipgraCensusAuthorizationService to create authorizations
 class DipgraCensusAuthorizationHandler < Decidim::AuthorizationHandler
-  include Virtus::Multiparams
-
   # This is the input (from the user) to validate against
   attribute :document_type, Symbol
   attribute :id_document, String
