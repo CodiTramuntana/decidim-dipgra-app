@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: c712e89f35bd47020dc1a7810bd2bab85944ba94
-  tag: v0.27.1.1
+  revision: 252eb2f0bf0085100792c9c3c387d82b51031dbe
+  tag: v0.27.1.2
   specs:
-    decidim-file_authorization_handler (0.27.1.1)
+    decidim-file_authorization_handler (0.27.1.2)
       decidim (~> 0.27.1)
       decidim-admin (~> 0.27.1)
       rails (>= 5.2)
@@ -195,7 +195,6 @@ PATH
     decidim-dipgra_census_authorization (0.27.0)
       decidim (~> 0.27.0)
       savon (~> 2.11.2)
-      virtus-multiparams (~> 0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -821,8 +820,6 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    virtus-multiparams (0.1.1)
-      virtus (~> 1.0)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
